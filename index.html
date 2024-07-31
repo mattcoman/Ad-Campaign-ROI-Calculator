@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ad Campaign ROI Calculator</title>
+</head>
+<body>
+  <h1>Ad Campaign ROI Calculator</h1>
+  <input type="text" id="campaignId" placeholder="Enter campaign ID">
+  <button onclick="getROI()">Get ROI</button>
+  <div id="roi"></div>
+
+  <script>
+    function getROI() {
+      var campaignId = document.getElementById('campaignId').value;
+      google.script.run.withSuccessHandler(displayROI).getROI(campaignId);
+    }
+
+    function displayROI(data) {
+      document.getElementById('roi').innerHTML = data;
+    }
+  </script>
+</body>
+</html>
